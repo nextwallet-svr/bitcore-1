@@ -1,7 +1,7 @@
 FROM node:4
 MAINTAINER Han Haofu <gtxx3600@gmail.com>
 
-VOLUME /root/.bitcore
+VOLUME /root/.bitcore/data
 
 COPY ./bitcore-node.json /root/.bitcore/
 
