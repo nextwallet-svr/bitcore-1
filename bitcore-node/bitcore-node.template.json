@@ -1,0 +1,42 @@
+{
+  "network": "${BITCOIN_NETWORK_NAME}",
+  "port": 8080,
+  "services": [
+    "bitcoind",
+    "insight-api",
+    "insight-ui",
+    "web"
+  ],
+  "servicesConfig": {
+    "bitcoind": {
+      "sendTxLog": "/root/.bitcore/data/pushtx.log",
+      "spawn": {
+        "datadir": "/root/.bitcore/data/",
+        "exec": "/usr/local/lib/node_modules/bitcore/node_modules/bitcore-node/bin/bitcoind",
+        "rpcqueue": 1000,
+        "rpcport": 8332,
+        "zmqpubrawtx": "tcp://127.0.0.1:28332",
+        "zmqpubhashblock": "tcp://127.0.0.1:28332"
+      }
+    },
+    "insight-lite-ui": {
+      "routePrefix": "${UI_ROUTE_PREFIX}",
+      "apiPrefix": "${API_ROUTE_PREFIX}"
+    },
+    "insight-lite-api": {
+      "routePrefix": "${API_ROUTE_PREFIX}",
+      "rateLimiterOptions": {
+        "limit": ${API_LIMIT_COUNT},
+        "internval": ${API_LIMIT_INTERVAL},
+        "whitelistLimit": ${API_LIMIT_COUNT},
+        "whitelistInterval": ${API_LIMIT_WHITELIST_INTERVAL},
+        "blacklistLimit": ${API_LIMIT_COUNT},
+        "blacklistInterval": ${API_LIMIT_BLACKLIST_INTERVAL},
+        "whitelist": ${API_LIMIT_WHITELIST_JSON},
+        "blacklist": ${API_LIMIT_BLACKLIST_JSON}
+      },
+      "enableCache": ${API_ENABLE_CACHE},
+      "disableRateLimiter": ${API_LIMIT_DISABLE}
+    }
+  }
+}
