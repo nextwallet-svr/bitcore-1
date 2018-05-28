@@ -19,11 +19,11 @@
         "zmqpubhashblock": "tcp://127.0.0.1:28332"
       }
     },
-    "insight-lite-ui": {
+    "insight-ui": {
       "routePrefix": "${UI_ROUTE_PREFIX}",
       "apiPrefix": "${API_ROUTE_PREFIX}"
     },
-    "insight-lite-api": {
+    "insight-api": {
       "routePrefix": "${API_ROUTE_PREFIX}",
       "rateLimiterOptions": {
         "limit": ${API_LIMIT_COUNT},
