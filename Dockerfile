@@ -29,7 +29,7 @@ RUN apt-get purge -y \
   /var/lib/apt/lists/*
 
 ENV BITCOIN_LIVENET 1
-ENV API_ROUTE_PREFIX "api"
+ENV API_ROUTE_PREFIX "insight-api"
 ENV UI_ROUTE_PREFIX ""
 
 ENV API_CACHE_ENABLE 1
